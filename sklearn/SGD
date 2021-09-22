@@ -1,0 +1,17 @@
+# 확률적 경사하강법 (Stochastic Gradient Descent)
+# 경사하강법을 조금더 효율적으로 사용하기 위해 만들어진 방법
+# 경사하강법은 전체 dataset을 이용해서 한걸음 씩 내려가는 것
+# SGD는 Mini Batch를 이용해서 빠르게 답을 찾아나간다.
+# 장점 : 많은 데이터를 처리하기에는 효율적이다.
+# 단점: 비등방성 함수에는 비효율적이다. learning rate가 낮으면local minimum에 빠질 수 있고, laerning rate가 높으면 최적화를 못할 수 도있다.
+
+
+#https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html
+#<code>
+# SGDClassifier 는 Linear classifiers를 SGD를 이용해서 최적화하는 estimator
+from sklearn.linear_model import SGDClassifier
+
+sgd_clf = SGDClassifier(random_state = 42) # SGD는 확률적으로 샘플 취하기에 결과를 반복하려면 randome_state를 정해줘야해
+sgd_clf.fit(X_train, y_train)
+
+sgd_clf.predict([some_digit])
